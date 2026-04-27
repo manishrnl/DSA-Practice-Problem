@@ -34,7 +34,7 @@ public class BubbleSort {
                     /**
                      * ARCHITECTURAL NOTE ON FUNCTION CALLS:
                      * Theoretically, a function call adds overhead (stack pushing , context switching , adding new memory ,
-                     * RAM etc. ). However, the modern JVM's JIT (Just-In-Time)  Compiler performs "Method Inlining"—injecting
+                     * RAM etc. ). However, the modern JVM's JIT (Just-In-Time)  Compiler performs "Method Inlining"  injecting
                      * the swap logic  directly into the loop (into the called function) to  eliminate call overhead
                      * at runtime. Calling a  different function inside a function is just for humans
                      * readibility . It doesn't affect program overhead via context  switching etc.
@@ -45,7 +45,7 @@ public class BubbleSort {
             }
 
             // EARLY EXIT OPTIMIZATION: If no elements were swapped during
-            // a full pass, the array is already sorted.
+            // a full pass, meaning the array is already sorted.
             if (!swapped) break;
         }
         return array;

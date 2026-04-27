@@ -24,53 +24,35 @@ public class QuickSort {
      * the recursion depth requires stack memory.
      */
     public static int[] quickSort(int[] array) {
-
-        if (array == null || array.length == 0) return array;
-        quickSort(array, 0, array.length - 1);
+        if (array == null || array.length == 0)
+            return array;
+        sort(array, 0, array.length - 1);
         return array;
     }
 
-    private static void quickSort(int[] array, int low, int high) {
+    private static void sort(int[] array, int low, int high) {
         if (low < high) {
-            /**
-             * STEP 1: Partition the array. 'pi' is the partitioning index, 
-             * array[pi] is now at the right place.
-             */
-            int pi = partition(array, low, high);
-
-            /**
-             * STEP 2: Recursively sort elements before and after partition.
-             */
-            quickSort(array, low, pi - 1);  // Left side
-            quickSort(array, pi + 1, high); // Right side
+            int pivot = partition(array, low, high);
+            sort(array, low, pivot - 1);  // Left side
+            sort(array, pivot + 1, high); // Right side
         }
     }
 
     private static int partition(int[] array, int low, int high) {
-        // We choose the last element as the pivot
-        int pivot = array[high];
 
-        /**
-         * Index of smaller element: This tracks the "boundary" between 
-         * elements less than the pivot and elements greater than the pivot.
-         */
+        int pivot = array[high];    // We choose the last element as the pivot
         int i = (low - 1);
 
         for (int j = low; j < high; j++) {
-            // If current element is smaller than the pivot
             if (array[j] < pivot) {
                 i++;
-                // Swap array[i] and array[j]
                 int temp = array[i];
                 array[i] = array[j];
                 array[j] = temp;
             }
         }
 
-        /**
-         * Final Swap: Place the pivot in its correct sorted position 
-         * by swapping it with the element at i + 1.
-         */
+        // Final Swap: Place the pivot in its correct sorted position by swapping it with the element at i + 1.
         int temp = array[i + 1];
         array[i + 1] = array[high];
         array[high] = temp;

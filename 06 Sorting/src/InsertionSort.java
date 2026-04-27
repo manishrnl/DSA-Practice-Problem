@@ -1,4 +1,5 @@
 package src;
+
 import java.util.Arrays;
 
 import static java.lang.System.nanoTime;
@@ -40,7 +41,7 @@ public class InsertionSort {
     }
 
     public static void main(String[] args) {
-        int[] array = {1, 4, 3, 2, 6, 4, 77, 89, 54, 23, 78, 13};
+        int[] array = {1, 4, 3, 2, -1, 4, 77, 89, 54, 23, 78, 13};
 
         long startFunction = nanoTime();
         int[] result = insertionSort(array);

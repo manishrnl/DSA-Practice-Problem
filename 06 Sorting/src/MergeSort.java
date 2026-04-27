@@ -7,75 +7,125 @@ import static java.lang.System.out;
 public class MergeSort {
 
     /**
-     * Merge Sort is a divide-and-conquer algorithm that recursively breaks
-     * down an array into smaller subarrays until each subarray contains a single
-     * element (which is inherently sorted).
-     * * * Logic:
-     * 1. Divide: Find the midpoint and split the array into two halves.
-     * 2. Conquer: Recursively call sort on both halves.
-     * 3. Combine (Merge): Merge the two sorted halves back into a single
-     * sorted sequence using a temporary auxiliary array.
-     * * * Time Complexity:
-     * - Best, Average, and Worst Case: O(N log N)
-     * The array is divided into halves (log N levels), and at each level,
-     * we perform N operations to merge the elements.
-     * * * Space Complexity:
-     * - O(N): Not in-place. It requires temporary arrays to store the
-     * elements during the merging process.
+     * ================= MERGE SORT (MENTAL MODEL) =================
+     * Think in 2 phases:
+     * 1) GO DOWN (Divide phase)
+     * - Keep splitting array into halves
+     * - Stop when size becomes 1 (already sorted)
+     * 2) COME UP (Merge phase)
+     * - Now start merging small sorted arrays
+     * - Build bigger sorted arrays step by step
+     * IMPORTANT RULE:
+     * 👉 merge() is called ONLY when both left and right are already sorted
+     * =============================================================
+     * Time Complexity: O(N log N)
+     * Space Complexity: O(N)
      */
+
     public static int[] mergeSort(int[] array) {
-        if (array.length < 2) {
-            return array; // Base case: array is already "sorted"
+
+        //  BASE CASE
+        // If array has 1 element → already sorted → return
+        if (array.length <= 1) {
+            return array;
         }
 
+        // 🔹 STEP 1: DIVIDE
+        // Split array into two halves
         int mid = array.length / 2;
-        int[] left = new int[mid];
-        int[] right = new int[array.length - mid];
 
-        // STEP 1: Split the main array into two temporary subarrays
-        System.arraycopy(array, 0, left, 0, mid);
-        System.arraycopy(array, mid, right, 0, array.length - mid);
+        int[] leftArray = Arrays.copyOfRange(array, 0, mid);
+        int[] rightArray = Arrays.copyOfRange(array, mid, array.length);
 
-        // STEP 2: Recursively sort both halves
-        mergeSort(left);
-        mergeSort(right);
+        /*
+         * 🔥 RECURSION FLOW (VERY IMPORTANT)
+         *
+         * Execution does NOT go like normal top-to-bottom.
+         *
+         * It goes like:
+         *
+         *   1. Go LEFT completely (until base case)
+         *   2. Then go RIGHT completely
+         *   3. THEN merge
+         *
+         * Think:
+         *   "I will NOT merge until both sides are fully sorted"
+         */
 
-        // STEP 3: Merge the sorted halves back together
-        merge(array, left, right);
+        // 🔹 STEP 2: SORT LEFT HALF (go deep first)
+        out.println("Left Split ..........." + Arrays.toString(leftArray) + "........" +
+                " Right Split  ..........." + Arrays.toString(rightArray));
+        mergeSort(leftArray);
+        out.println("Left Array : " + Arrays.toString(leftArray));
+
+        // 🔹 STEP 2: SORT RIGHT HALF
+        mergeSort(rightArray);
+
+        out.println("Right Array : " + Arrays.toString(rightArray));
+        // 🔹 STEP 3: MERGE (happens while returning back)
+        // At this point:
+        // leftArray is sorted ✔
+        // rightArray is sorted ✔
+        merge(array, leftArray, rightArray);
+
+
         return array;
     }
 
-    private static void merge(int[] result, int[] left, int[] right) {
-        int i = 0, j = 0, k = 0;
+    /**
+     * ================= MERGE FUNCTION =================
+     * Input:
+     * left[]  → already sorted
+     * right[] → already sorted
+     * Output:
+     * result[] → combined sorted array
+     * Idea:
+     * Compare the smallest elements from both arrays
+     * Pick the smaller one and move forward
+     */
 
-        // Compare elements from left and right arrays and pick the smaller one
-        while (i < left.length && j < right.length) {
-            if (left[i] <= right[j]) {
-                result[k++] = left[i++];
+    private static void merge(int[] result, int[] leftArray, int[] rightArray) {
+
+        int leftIndex = 0; // pointer for left array
+        int rightIndex = 0; // pointer for right array
+        int k = 0; // pointer for result array
+
+        // 🔹 Compare elements from both arrays
+        while (leftIndex < leftArray.length && rightIndex < rightArray.length) {
+
+            if (leftArray[leftIndex] <= rightArray[rightIndex]) {
+                result[k++] = leftArray[leftIndex++]; // take from left
             } else {
-                result[k++] = right[j++];
+                result[k++] = rightArray[rightIndex++]; // take from right
             }
         }
 
-        // Collect any remaining elements from the left side
-        while (i < left.length) {
-            result[k++] = left[i++];
+        // 🔹 Copy remaining elements (if any)
+
+        // If left still has elements
+        while (leftIndex < leftArray.length) {
+            result[k++] = leftArray[leftIndex++];
         }
 
-        // Collect any remaining elements from the right side
-        while (j < right.length) {
-            result[k++] = right[j++];
+        // If right still has elements
+        while (rightIndex < rightArray.length) {
+            result[k++] = rightArray[rightIndex++];
         }
+        out.println("******************** Merge Result ****************** " + Arrays.toString(result));
     }
 
     public static void main(String[] args) {
-        int[] data = {29, 10, 14, 37, 13, 12, 3, 34, 456, 5, 4, 6, 56, 7, 6, 8, 78};
+
+        int[] data = {
+                1,1,1,1,1,1,1,1,1,1,1,29, 10, 14, 37, 13, 12, 3, 34,
+                456, 5, 4, 6, 56, 7, 6, 8, 78
+        };
 
         out.println("\nOriginal: " + Arrays.toString(data));
         long start = System.nanoTime();
         mergeSort(data);
         long end = System.nanoTime();
-        out.println("Sorted:   " + Arrays.toString(data) +
-                " \n->Time taken to Execute is " + (end - start) + " ns");
+        out.println("Sorted:   " + Arrays.toString(data));
+        out.println("Time taken: " + (end - start) + " ns");
     }
 }
