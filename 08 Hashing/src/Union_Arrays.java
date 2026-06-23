@@ -1,5 +1,3 @@
-package src;
-
 import com.sun.source.tree.BreakTree;
 
 import java.util.HashSet;

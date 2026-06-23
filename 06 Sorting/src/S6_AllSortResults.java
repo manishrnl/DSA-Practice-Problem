@@ -1,6 +1,6 @@
 
 
-public class AllSortResults {
+public class S6_AllSortResults {
     public static void main(String[] args) {
 
         int[] originalArray = {29, 10, 14, 37, 13, 12, 3, 34, 456, 5, 4, 6, 56, 7, 6, 8, 78, 456, 79, 32, 45, 45, 5465, 32,
@@ -16,35 +16,35 @@ public class AllSortResults {
         System.out.println("\nTime taken by Each Algorithm to sorts array is mentioned below ");
         int[] forBubble = originalArray.clone();
         long startBubble = System.nanoTime();
-        int[] bubbleResult = BubbleSort.bubbleSort(forBubble);
+        int[] bubbleResult = S1_BubbleSort.bubbleSort(forBubble);
         long endBubble = System.nanoTime();
         System.out.println("Bubble Sort    : " + (endBubble - startBubble) + " ns");
 
         // 2. Insertion Sort (using a clone)
         int[] forInsertion = originalArray.clone();
         long startInsertion = System.nanoTime();
-        int[] insertionResult = InsertionSort.insertionSort(forInsertion);
+        int[] insertionResult = S2_InsertionSort.insertionSort(forInsertion);
         long endInsertion = System.nanoTime();
         System.out.println("Insertion Sort : " + (endInsertion - startInsertion) + " ns");
 
         // 3. Selection Sort (using a clone)
         int[] forSelection = originalArray.clone();
         long startSelection = System.nanoTime();
-        int[] selectionResult = SelectionSort.selectionSort(forSelection);
+        int[] selectionResult = S3_SelectionSort.selectionSort(forSelection);
         long endSelection = System.nanoTime();
         System.out.println("Selection Sort : " + (endSelection - startSelection) + " ns");
 
         // 4. Merge Sort (using a clone)
         int[] forMerge = originalArray.clone();
         long startMerge = System.nanoTime();
-        int[] mergeResult = MergeSort.mergeSort(forMerge);
+        int[] mergeResult = S4_MergeSort.mergeSort(forMerge);
         long endMerge = System.nanoTime();
         System.out.println("Merge Sort     : " + (endMerge - startMerge) + " ns");
 
         // 5. Quick Sort (using a clone)
         int[] forQuick = originalArray.clone();
         long startQuick = System.nanoTime();
-        int[] quickResult = QuickSort.quickSort(forQuick);
+        int[] quickResult = S5_QuickSort.quickSort(forQuick);
         long endQuick = System.nanoTime();
         System.out.println("Quick Sort     : " + (endQuick - startQuick) + " ns");
 

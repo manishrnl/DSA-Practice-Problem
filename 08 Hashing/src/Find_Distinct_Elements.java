@@ -1,20 +1,16 @@
-package src;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 
 public class Find_Distinct_Elements {
-//    Faster among all 3 function HashSet > HashMap > Stream
+    //    Faster among all 3 function HashSet > HashMap > Stream
 //    T.C O(n)
     public static int findDistinctElements_HashMap(int[] array) {
         HashMap<Integer, Integer> map = new HashMap<>();
-
         for (int value : array) {
             if (!map.containsKey(value))
                 map.put(value, 1);
         }
-
         return map.size();
     }
 
@@ -34,7 +30,7 @@ public class Find_Distinct_Elements {
     }
 
     static void main(String[] args) {
-        int[] input = new int[]{1, 2, 3, 4, 7, 7, 7, 7, 77, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 9};
+        int[] input = new int[]{1, 2, 3, 4, 7, 7, 7, 7, 77, 77, 77, 77, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 9};
         long start = System.nanoTime();
         int result = findDistinctElements_HashMap(input);
         long end = System.nanoTime();

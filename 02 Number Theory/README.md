@@ -1,9 +1,6 @@
 # Catalan Number 
 
-Catalan numbers are a sequence of natural numbers that occur in various counting problems, 
-particularly those involving recursive structures. If i am into competitive programming 
-or building complex data structures (like those in mine Airbnb or LinkedIn clones), I'll see 
-these everywhere.
+Catalan numbers are a sequence of natural numbers that occur in various counting problems, particularly those involving recursive structures. 
 
 ### What are Catalan Numbers?
 The $n$-th Catalan number, denoted as $C_n$, counts things like:

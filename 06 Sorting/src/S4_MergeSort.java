@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 import static java.lang.System.out;
 
-public class MergeSort {
+public class S4_MergeSort {
 
     /**
      * ================= MERGE SORT (MENTAL MODEL) =================
@@ -21,51 +21,37 @@ public class MergeSort {
      */
 
     public static int[] mergeSort(int[] array) {
+        if (array.length <= 1) return array;    //  BASE CASE: If array has 1 element →
+        // already sorted → return
+        int mid = array.length / 2;        // 🔹 STEP 1, DIVIDE : Split array into two halves
+        int[] leftArray = Arrays.copyOfRange(array, 0, mid), rightArray = Arrays.copyOfRange(array, mid, array.length);
 
-        //  BASE CASE
-        // If array has 1 element → already sorted → return
-        if (array.length <= 1) {
-            return array;
-        }
-
-        // 🔹 STEP 1: DIVIDE
-        // Split array into two halves
-        int mid = array.length / 2;
-
-        int[] leftArray = Arrays.copyOfRange(array, 0, mid);
-        int[] rightArray = Arrays.copyOfRange(array, mid, array.length);
-
-        /*
-         * 🔥 RECURSION FLOW (VERY IMPORTANT)
-         *
-         * Execution does NOT go like normal top-to-bottom.
-         *
-         * It goes like:
-         *
+        /* 🔥 RECURSION FLOW (VERY IMPORTANT)
+         * Execution does NOT go like normal top-to-bottom. It goes like:
          *   1. Go LEFT completely (until base case)
          *   2. Then go RIGHT completely
          *   3. THEN merge
-         *
-         * Think:
-         *   "I will NOT merge until both sides are fully sorted"
+         * Think:  "I will NOT merge until both sides are fully sorted"
          */
 
         // 🔹 STEP 2: SORT LEFT HALF (go deep first)
-        out.println("Left Split ..........." + Arrays.toString(leftArray) + "........" +
-                " Right Split  ..........." + Arrays.toString(rightArray));
+        out.println("Splitting Left Part ..........." + Arrays.toString(leftArray));
         mergeSort(leftArray);
-        out.println("Left Array : " + Arrays.toString(leftArray));
+        out.println("All Left Array is being split up : " + Arrays.toString(leftArray));
 
         // 🔹 STEP 2: SORT RIGHT HALF
+        out.println("Splitting Right Part ..........." + Arrays.toString(rightArray));
         mergeSort(rightArray);
+        out.println("All Right Array is being split up : " + Arrays.toString(rightArray));
 
-        out.println("Right Array : " + Arrays.toString(rightArray));
         // 🔹 STEP 3: MERGE (happens while returning back)
         // At this point:
         // leftArray is sorted ✔
         // rightArray is sorted ✔
-        merge(array, leftArray, rightArray);
 
+        out.println("Now merging the splitted Array");
+        merge(array, leftArray, rightArray);
+        out.println("\n\n");
 
         return array;
     }
@@ -90,35 +76,23 @@ public class MergeSort {
 
         // 🔹 Compare elements from both arrays
         while (leftIndex < leftArray.length && rightIndex < rightArray.length) {
-
-            if (leftArray[leftIndex] <= rightArray[rightIndex]) {
+            if (leftArray[leftIndex] <= rightArray[rightIndex])
                 result[k++] = leftArray[leftIndex++]; // take from left
-            } else {
+            else
                 result[k++] = rightArray[rightIndex++]; // take from right
-            }
         }
 
         // 🔹 Copy remaining elements (if any)
-
-        // If left still has elements
-        while (leftIndex < leftArray.length) {
+        while (leftIndex < leftArray.length)        // If left still has elements
             result[k++] = leftArray[leftIndex++];
-        }
-
-        // If right still has elements
-        while (rightIndex < rightArray.length) {
+        while (rightIndex < rightArray.length)         // If right still has elements
             result[k++] = rightArray[rightIndex++];
-        }
-        out.println("******************** Merge Result ****************** " + Arrays.toString(result));
+
+        out.println("====================== Merge Result ======================== " + Arrays.toString(result));
     }
 
     public static void main(String[] args) {
-
-        int[] data = {
-                1,1,1,1,1,1,1,1,1,1,1,29, 10, 14, 37, 13, 12, 3, 34,
-                456, 5, 4, 6, 56, 7, 6, 8, 78
-        };
-
+        int[] data = {1, 29, 10, 14, 37, 13, 12, 3, 34, 456, 5, 4, 6, 56, 7, 6, 8, 78};
         out.println("\nOriginal: " + Arrays.toString(data));
         long start = System.nanoTime();
         mergeSort(data);

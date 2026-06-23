@@ -4,7 +4,7 @@ import static java.lang.System.nanoTime;
 import static java.lang.System.out;
 
 
-public class BubbleSort {
+public class S1_BubbleSort {
     /**
      * BUBBLE SORT LOGIC
      * * 1. The Comparison: Start at the beginning of the array. Compare the current element (A)

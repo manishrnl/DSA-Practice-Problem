@@ -1,5 +1,5 @@
 public class N_Queen {
-    static int N = 25;
+    static int N = 10;
 
     public static boolean solve(int[][] board, int row) {
         // BASE CASE: If we reached the end, we found a solution!

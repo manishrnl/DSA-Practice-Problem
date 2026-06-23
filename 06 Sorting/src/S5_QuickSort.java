@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 import static java.lang.System.out;
 
-public class QuickSort {
+public class S5_QuickSort {
 
     /**
      * Quick Sort is a Divide and Conquer algorithm that picks an element

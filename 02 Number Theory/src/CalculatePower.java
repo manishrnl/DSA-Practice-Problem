@@ -3,7 +3,6 @@ import java.math.BigInteger;
 public class CalculatePower {
     public long calculatePower(long base, long power) {
         long result = 1;
-
         result = (long) Math.pow(base, power);
         System.out.printf("Power of %d ^ %d via Math.pow() is : ", base, power);
         return result;

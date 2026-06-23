@@ -1,4 +1,3 @@
-package src;
 public class UniquePaths {
 
     /**
@@ -40,7 +39,7 @@ public class UniquePaths {
     }
 
     public static void main(String[] args) {
-        int rows = 12, columns = 15;
+        int rows = 4, columns = 5;
         long startTime = System.nanoTime();
         long result = countUniquePaths(rows, columns);
         long endTime = System.nanoTime();

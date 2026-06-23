@@ -25,14 +25,15 @@ public class PigeonholeExample {
                 totalDuplicates.add(value);
             holes[value] = true;
         }
-        System.out.print("Duplicates value are : ");
+        System.out.print("Total Duplicates value found are : ");
         for (int value : totalDuplicates)
             System.out.print(value + " ");
     }
     public static void main(String[] args) {
         int[] pigeons = {1, 2, 3, 4, 2,3,4}; // 5 items, values 1-4
-        System.out.println("Very 1st  duplicate pigeon is: " + findDuplicate(pigeons));
+        System.out.println("Very 1st  duplicate pigeon among all duplicates  is: " + findDuplicate(pigeons));
         totalDuplicate(pigeons);
+
 
     }
 }

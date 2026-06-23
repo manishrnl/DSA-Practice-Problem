@@ -1,5 +1,4 @@
 
-package src;
 public class JosephProblem {
     /**
      * Problem: The Josephus Survivor
@@ -26,13 +25,11 @@ public class JosephProblem {
     }
 
     public static void main(String[] args) {
-        int n = 5;
-        int k = 3;
+        int n = 6;
+        int k = 2;
 
         long survivorPosition = josephProblem(n, k);
 
-        System.out.println("The survivor in a circle of " + n +
-                " people with a step of " + k +
-                " is at index: " + survivorPosition);
+        System.out.println("The survivor in a circle of " + n +" people with a step of " + k +"starting from position 0 is at index: " + survivorPosition);
     }
 }

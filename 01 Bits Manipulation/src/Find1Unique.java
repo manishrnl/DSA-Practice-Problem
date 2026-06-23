@@ -8,12 +8,10 @@ import java.util.Map;
 public class Find1Unique {
     //      General Approach T.C = O(n^2)  , , Space Complexity = O(1)
     public int find1UniqueGeneralApproach(int[] array) {
-
-        for (int i = 0; i < array.length; i++) {
-            int value = array[i], count = 0;
-            for (int j = 0; j < array.length; j++) {
-                if (value == array[j]) count++;
-            }
+        for (int k : array) {
+            int value = k, count = 0;
+            for (int i : array)
+                if (value == i) count++;
             if (count == 1) return value;
         }
         return -1;
@@ -21,28 +19,14 @@ public class Find1Unique {
 
     //      Hash Map Approach T.C = O(n) , Space Complexity = O(n)
     public int find1UniqueHashMap(int[] array) {
-        // 1. Create the "Tally Sheet" (HashMap)
-        // The first Integer is the KEY (the number from the array)
-        // The second Integer is the VALUE (how many times it appeared)
-        HashMap<Integer, Integer> results = new HashMap<>();
-
-        // 2. Loop through every number in your input array
-        for (int value : array) {
-        /* results.getOrDefault(value, 0):
-           - "Check if 'value' is already in my tally sheet."
-           - "If yes, give me the current count."
-           - "If no, assume the current count is 0."
-
-           results.put(..., count + 1):
-           - "Take that count, add 1 to it, and save it back into the sheet."
-        */
+        // 1. Create the "Tally Sheet" (HashMap) ,  The 1st data  is the KEY 2nd data is the VALUE
+        HashMap<Integer, Integer> results = new HashMap<>(array.length);
+        for (int value : array)
             results.put(value, results.getOrDefault(value, 0) + 1);
-        }
 
         // 3. Look through the finished Tally Sheet
         // Map.Entry represents one "row" in your tally sheet (Key + Value)
         for (Map.Entry<Integer, Integer> entry : results.entrySet()) {
-
             // If the Value (the count) is exactly 1, we found our unique number!
             if (entry.getValue() == 1) {
                 return entry.getKey(); // Return the Key (the original number)
@@ -61,9 +45,10 @@ public class Find1Unique {
     }
 
 
+
     public static void main(String[] args) {
         int[] array = {1, 2, 1, 3, 4, 6, 6, 7, 2, 3, 4, 5, 7};
-     Find1Unique obj = new Find1Unique();
+        Find1Unique obj = new Find1Unique();
 
         // 1. General Approach
         long startGeneral = System.nanoTime();

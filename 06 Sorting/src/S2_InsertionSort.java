@@ -3,7 +3,7 @@ import java.util.Arrays;
 import static java.lang.System.nanoTime;
 import static java.lang.System.out;
 
-public class InsertionSort {
+public class S2_InsertionSort {
 
     /**
      * LOGIC for Insertion Sort
@@ -20,16 +20,13 @@ public class InsertionSort {
      */
     public static int[] insertionSort(int[] array) {
         int length = array.length;
+        for (int i = 1; i < length; i++) {        // Start from the second element (index 1)
+            int key = array[i];                   // 1. Pick the element to be inserted
+            int j = i - 1;                        // 2. Start comparing with the element immediately to the left
 
-        // Start from the second element (index 1)
-        for (int i = 1; i < length; i++) {
-            int key = array[i]; // 1. Pick the element to be inserted
-            int j = i - 1;      // 2. Start comparing with the element immediately to the left
-
-            // 3. The "Shifting" Phase
-            while (j >= 0 && array[j] > key) {
-                array[j + 1] = array[j]; // Move the larger element to the right
-                j = j - 1;               // Move the pointer further left
+            while (j >= 0 && array[j] > key) {    // 3. The "Shifting" Phase
+                array[j + 1] = array[j];         // Move the larger element to the right
+                j = j - 1;                       // Move the pointer further left
             }
 
             // 4. The "Insertion" Phase

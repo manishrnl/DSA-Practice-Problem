@@ -63,16 +63,15 @@ public class KadaneAlgorithm {
     }
 
     public static void main(String[] args) {
-        int[] array = {-10, -3000, -4, -500, 4, 5, 6, 7, 8, 9, 4, -10, -3000, -4, -500, 4, 5, 6, 7, 8, 9, 4,-10, -3000, -4, -500, 4, 5, 6, 7, 8, 9, 4,-10, -3000, -4, -500, 4, 5, 6, 7, 8, 9, 4,-10, -3000,
-                -10, -3000, -4, -500, 4, 5, 6, 7, 8, 9, 4, -10, -3000, -4, -500, 4, 5, 6, 7, 8, 9, 4,-10, -3000, -4, -500, 4, 5, 6, 7, 8, 9, 4,-10, -3000, -4, -500, 4, 5, 6, 7, 8, 9, 4,-10, -3000, -4, -500, 4, 5, 6, 7, 8, 9, 4,-900};
+        int[] array = {-10, -3000, -4, 500, 4, 5, 6, 7, 8, -9000, 4, 900, -200, 800, 200, 30, -50, -70};
         long startTime = System.nanoTime();
         int result = max__Pair_Sum(array);
         long endTime = System.nanoTime();
 
         int result1 = Approach2(array);
         long endTime1 = System.nanoTime();
-        System.out.println("Result is : " + result + " -> Time taken by algorithm is  " + (endTime - startTime) + " ns");
-        System.out.println("Result is : " + result1 + " -> Time taken by algorithm is  " + (endTime1 - endTime) + " ns");
+        System.out.println("Result via O(N) method is : " + result + " -> Time taken by algorithm is  " + (endTime - startTime) + " ns");
+        System.out.println("Result via O(N^2) method is : " + result1 + " -> Time taken by algorithm is  " + (endTime1 - endTime) + " ns");
     }
 
 }

@@ -1,5 +1,3 @@
-package src;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -58,9 +56,8 @@ public class SubArray_With_Given_Sum {
     }
 
     static void main(String[] args) {
-        int[] array = {1, 2, 3, 4, 5, 45, 3, 5, 56, 57, 6, 78, 8, 79, 89, 8, 79, 7, 86, 7, 5
-                , 6, 4, 5, 3, 4, 2, 456, 23, 4, 3, 5, 54, 6, 5, 7, 67, 86789, 788090, 9, -9, 0, -89, 678, 54, 6, 34534, 45
-                , 542354, 34, 534, 56, 45, 56, 7,};
+        int[] array = {1, 2, 3, 4, 5, 45, 3, 5, 56, 57, 6, 78, 8, 79, 89, 8, 79, 7, 86, 7, 5, 6, 4, 5, 3, 4, 2, 456, 23, 4, 3, 5, 54, 6, 5, 7, 67, 86789,
+                788090, 9, -9, 0, -89, 678, 54, 6, 34534, 45, 542354, 34, 534, 56, 45, 56, 7,};
         int targetSum = 635;
         long startTime = System.nanoTime();
         List<Integer> list = findSubArraysSum(array, targetSum);

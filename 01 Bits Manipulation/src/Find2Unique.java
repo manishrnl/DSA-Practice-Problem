@@ -8,51 +8,31 @@ public class Find2Unique {
     public int[] find2UniqueGeneralApproach(int[] array) {
         int length = array.length;
         List<Integer> lists = new ArrayList<>();
-
         for (int value : array) {
             int count = 0;
             for (int i : array) {
-                if (value == i)
-                    count++;
-
+                if (value == i) count++;
             }
-            if (count == 1) {
-                lists.add(value);
-            }
+            if (count == 1) lists.add(value);
         }
         int[] result = new int[lists.size()];
-        for (int i = 0; i < lists.size(); i++) {
+        for (int i = 0; i < lists.size(); i++)
             result[i] = lists.get(i);
-        }
         return result;
-
     }
 
     public int[] find2UniqueHashMap(int[] array) {
         HashMap<Integer, Integer> map = new HashMap<>();
+        for (int value : array) map.put(value, map.getOrDefault(value, 0) + 1);
 
-        // 1. Fill the frequency map
-        for (int value : array) {
-            map.put(value, map.getOrDefault(value, 0) + 1);
-        }
-
-        // 2. Use a temporary list to hold the unique keys
         List<Integer> uniqueList = new ArrayList<>();
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            if (entry.getValue() == 1) {
-                uniqueList.add(entry.getKey());
-            }
+            if (entry.getValue() == 1) uniqueList.add(entry.getKey());
         }
 
-        // 3. INITIALIZE result here (now that we know the size)
         int[] result = new int[uniqueList.size()];
-
-        // 4. Manual transfer (Fastest way)
         int index = 0;
-        for (int num : uniqueList) {
-            result[index++] = num; // Direct assignment
-        }
-
+        for (int num : uniqueList) result[index++] = num;
         return result;
     }
 
@@ -60,31 +40,21 @@ public class Find2Unique {
         // Step 1: XOR all elements.
         // Pairs cancel out. resultXOR will be (Unique1 ^ Unique2)
         int combinedXOR = 0;
-        for (int num : array) {
-            combinedXOR ^= num;
-        }
+        for (int num : array) combinedXOR ^= num;
 
         // Step 2: Isolate the rightmost "set bit" (the rightmost 1).
         // This bit represents a position where Unique1 and Unique2 are DIFFERENT.
         // Formula: x & -x gives the lowest bit that is 1.
         int rightmostSetBit = combinedXOR & -combinedXOR;
-
         int[] result = new int[2];
 
         // Step 3: Divide numbers into two groups based on that specific bit.
         for (int num : array) {
             // Group A: Numbers that have 0 at this bit position
-            if ((num & rightmostSetBit) == 0) {
-                result[0] ^= num;
-            }
-            // Group B: Numbers that have a 1 at this bit position
-            else {
-                result[1] ^= num;
-            }
+            if ((num & rightmostSetBit) == 0) result[0] ^= num;
+                // Group B: Numbers that have a 1 at this bit position
+            else result[1] ^= num;
         }
-//        Sorting Array for consistency but sorting increases complexity to O(n^2) so not recommended
-//        Arrays.sort(result);
-
         return result;
     }
 

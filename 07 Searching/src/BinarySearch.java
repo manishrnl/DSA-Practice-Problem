@@ -14,7 +14,6 @@ public class BinarySearch {
                 System.out.printf("Elements Found at index %d & Total Operations performed " +
                         "to search elements %d  is : %d OPERATIONS\n", mid, key, operationPerformed);
                 return true;
-
             }
             if (key < array[mid]) {
                 high = mid - 1;

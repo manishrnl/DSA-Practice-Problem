@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 import static java.lang.System.out;
 
-public class SelectionSort {
+public class S3_SelectionSort {
 
     /**
      * Selection Sort is an in-place comparison-based algorithm that conceptually
@@ -23,6 +23,7 @@ public class SelectionSort {
      * - O(1): Sorting is performed in-place; no additional data structures are
      * required relative to the input size.
      */
+
     public static int[] selectionSort(int[] array) {
         int n = array.length;
 

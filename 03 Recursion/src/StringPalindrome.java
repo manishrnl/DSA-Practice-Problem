@@ -1,4 +1,3 @@
-package src;
 public class StringPalindrome {
     // This matches your requested signature
     public static boolean stringPalindrome(String str) {

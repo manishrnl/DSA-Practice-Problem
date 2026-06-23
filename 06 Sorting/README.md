@@ -77,56 +77,7 @@ Each pass guarantees **one largest element is placed correctly**.
 
 ---
 
-## 2. Selection Sort: "Search and Swap"
-
-**Idea:** Find minimum → swap once → grow sorted section.
-
-```mermaid
-graph TD
-classDef largeFont font-size:25px, font-weight:bold;
-
-
-    subgraph "Step 1: Search MIN in full array"
-        G[8] -.- H[3] -.- I[6] -.- J[2] -.- K[7] -.- L((1))
-    end
-    
-    subgraph "Start: [8, 3, 6, 2, 7, 1]"
-        A[8] --- B[3] --- C[6] --- D[2] --- E[7] --- F[1]
-    end
-```
-```mermaid
-graph TD
-    subgraph "Sorted Section grows"
-        S((1)) --- T[3] --- U[6] --- V[2] --- W[7] --- X[8]
-    end
-    
-    classDef largeFont font-size:25px, font-weight:bold;
-    subgraph "Step 2: Swap MIN (1) with first element (8)"
-    M((1)) --- N[3] --- O[6] --- P[2] --- Q[7] --- R[8]
-end
-
-
-class A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X largeFont
-style M fill: green, stroke: #333, stroke-width: 4px
-```
-
-### Explanation
-
-* Entire array is scanned → smallest element is `1`
-* One swap happens → `1 ↔ 8`
-
-Result:
-
-```
-[1 | 3, 6, 2, 7, 8]
-```
-
-* Sorted portion grows from left
-* Only **one swap per pass**
-
----
-
-## 3. Insertion Sort: "Shift and Slide"
+## 2. Insertion Sort: "Shift and Slide"
 
 **Idea:** Insert element into correct position in sorted section.
 
@@ -190,6 +141,57 @@ Result:
 👉 Key point: **shifting, not swapping**
 
 ---
+
+
+## 3. Selection Sort: "Search and Swap"
+
+**Idea:** Find minimum → swap once → grow sorted section.
+
+```mermaid
+graph TD
+classDef largeFont font-size:25px, font-weight:bold;
+
+
+    subgraph "Step 1: Search MIN in full array"
+        G[8] -.- H[3] -.- I[6] -.- J[2] -.- K[7] -.- L((1))
+    end
+    
+    subgraph "Start: [8, 3, 6, 2, 7, 1]"
+        A[8] --- B[3] --- C[6] --- D[2] --- E[7] --- F[1]
+    end
+```
+```mermaid
+graph TD
+    subgraph "Sorted Section grows"
+        S((1)) --- T[3] --- U[6] --- V[2] --- W[7] --- X[8]
+    end
+    
+    classDef largeFont font-size:25px, font-weight:bold;
+    subgraph "Step 2: Swap MIN (1) with first element (8)"
+    M((1)) --- N[3] --- O[6] --- P[2] --- Q[7] --- R[8]
+end
+
+
+class A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X largeFont
+style M fill: green, stroke: #333, stroke-width: 4px
+```
+
+### Explanation
+
+* Entire array is scanned → smallest element is `1`
+* One swap happens → `1 ↔ 8`
+
+Result:
+
+```
+[1 | 3, 6, 2, 7, 8]
+```
+
+* Sorted portion grows from left
+* Only **one swap per pass**
+
+---
+
 
 ## B. Divide and Conquer Sorts ($O(N \log N)$)
 
@@ -282,6 +284,7 @@ Final result:
 👉 Sorting happens **during merging**
 
 ---
+
 ## Consider another example to understand merge sort.
 
 ✅ Example Array (21 elements)
