@@ -444,14 +444,14 @@ Extra space:
 | Iterative heap operations | `O(1)` |
 | Recursive heapify | `O(log n)` recursion stack |
 | Heap sort in-place | `O(1)` extra space |
-| Java `PriorityQueue` | `O(n)` internal array |
+| Java `H_04_PriorityQueueIntro` | `O(n)` internal array |
 
 ## 15. Min Heap Java Implementation
 
 ```java
 import java.util.ArrayList;
 
-class MinHeap {
+class H_01_MinHeap {
     private final ArrayList<Integer> heap = new ArrayList<>();
 
     public int size() {
@@ -539,16 +539,30 @@ class MinHeap {
 Usage:
 
 ```java
-MinHeap heap = new MinHeap();
+H_01_MinHeap heap = new H_01_MinHeap();
 
-heap.insert(30);
-heap.insert(10);
-heap.insert(20);
-heap.insert(5);
+heap.
 
-System.out.println(heap.peek());   // 5
-System.out.println(heap.remove()); // 5
-System.out.println(heap.remove()); // 10
+insert(30);
+heap.
+
+insert(10);
+heap.
+
+insert(20);
+heap.
+
+insert(5);
+
+System.out.
+
+println(heap.peek());   // 5
+        System.out.
+
+println(heap.remove()); // 5
+        System.out.
+
+println(heap.remove()); // 10
 ```
 
 ## 16. Max Heap Java Implementation
@@ -556,7 +570,7 @@ System.out.println(heap.remove()); // 10
 ```java
 import java.util.ArrayList;
 
-class MaxHeap {
+class H_02_MaxHeap {
     private final ArrayList<Integer> heap = new ArrayList<>();
 
     public int size() {
@@ -644,28 +658,42 @@ class MaxHeap {
 Usage:
 
 ```java
-MaxHeap heap = new MaxHeap();
+H_02_MaxHeap heap = new H_02_MaxHeap();
 
-heap.insert(30);
-heap.insert(10);
-heap.insert(20);
-heap.insert(50);
+heap.
 
-System.out.println(heap.peek());   // 50
-System.out.println(heap.remove()); // 50
-System.out.println(heap.remove()); // 30
+insert(30);
+heap.
+
+insert(10);
+heap.
+
+insert(20);
+heap.
+
+insert(50);
+
+System.out.
+
+println(heap.peek());   // 50
+        System.out.
+
+println(heap.remove()); // 50
+        System.out.
+
+println(heap.remove()); // 30
 ```
 
-## 17. Java PriorityQueue
+## 17. Java H_04_PriorityQueueIntro
 
-Java provides heap functionality using `PriorityQueue`.
+Java provides heap functionality using `H_04_PriorityQueueIntro`.
 
-By default, `PriorityQueue` is a min heap.
+By default, `H_04_PriorityQueueIntro` is a min heap.
 
 ```java
-import java.util.PriorityQueue;
+import java.util.H_04_PriorityQueueIntro;
 
-PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+H_04_PriorityQueueIntro<Integer> minHeap = new H_04_PriorityQueueIntro<>();
 
 minHeap.offer(30);
 minHeap.offer(10);
@@ -688,15 +716,15 @@ Common methods:
 | `isEmpty()` | Check whether queue is empty |
 | `size()` | Return number of elements |
 
-## 18. Max Heap Using PriorityQueue
+## 18. Max Heap Using H_04_PriorityQueueIntro
 
-Java `PriorityQueue` can become a max heap by using a reverse comparator.
+Java `H_04_PriorityQueueIntro` can become a max heap by using a reverse comparator.
 
 ```java
 import java.util.Collections;
-import java.util.PriorityQueue;
+import java.util.H_04_PriorityQueueIntro;
 
-PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+H_04_PriorityQueueIntro<Integer> maxHeap = new H_04_PriorityQueueIntro<>(Collections.reverseOrder());
 
 maxHeap.offer(30);
 maxHeap.offer(10);
@@ -711,25 +739,25 @@ System.out.println(maxHeap.poll()); // 30
 Another way:
 
 ```java
-PriorityQueue<Integer> maxHeap = new PriorityQueue<>(
-    (a, b) -> Integer.compare(b, a)
+H_04_PriorityQueueIntro<Integer> maxHeap = new H_04_PriorityQueueIntro<>(
+        (a, b) -> Integer.compare(b, a)
 );
 ```
 
 Avoid this:
 
 ```java
-PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
+H_04_PriorityQueueIntro<Integer> maxHeap = new H_04_PriorityQueueIntro<>((a, b) -> b - a);
 ```
 
 Subtraction can overflow when values are very large.
 
-## 19. PriorityQueue with Custom Objects
+## 19. H_04_PriorityQueueIntro with Custom Objects
 
 Example: sort students by lowest marks first.
 
 ```java
-import java.util.PriorityQueue;
+import java.util.H_04_PriorityQueueIntro;
 
 class Student {
     String name;
@@ -741,7 +769,7 @@ class Student {
     }
 }
 
-PriorityQueue<Student> pq = new PriorityQueue<>(
+H_04_PriorityQueueIntro<Student> pq = new H_04_PriorityQueueIntro<>(
     (a, b) -> Integer.compare(a.marks, b.marks)
 );
 
@@ -766,8 +794,8 @@ Neha 95
 For highest marks first:
 
 ```java
-PriorityQueue<Student> pq = new PriorityQueue<>(
-    (a, b) -> Integer.compare(b.marks, a.marks)
+H_04_PriorityQueueIntro<Student> pq = new H_04_PriorityQueueIntro<>(
+        (a, b) -> Integer.compare(b.marks, a.marks)
 );
 ```
 
@@ -823,7 +851,7 @@ Heap sort properties:
 ```java
 import java.util.Arrays;
 
-public class HeapSort {
+public class H_03_HeapSort {
     public static void heapSort(int[] arr) {
         int n = arr.length;
 
@@ -886,10 +914,10 @@ Idea:
 - The root of this min heap is the kth largest element.
 
 ```java
-import java.util.PriorityQueue;
+import java.util.H_04_PriorityQueueIntro;
 
 public int findKthLargest(int[] nums, int k) {
-    PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+    H_04_PriorityQueueIntro<Integer> minHeap = new H_04_PriorityQueueIntro<>();
 
     for (int num : nums) {
         minHeap.offer(num);
@@ -933,10 +961,10 @@ Idea:
 - The root of this max heap is the kth smallest element.
 
 ```java
-import java.util.PriorityQueue;
+import java.util.H_04_PriorityQueueIntro;
 
 public int findKthSmallest(int[] nums, int k) {
-    PriorityQueue<Integer> maxHeap = new PriorityQueue<>(
+    H_04_PriorityQueueIntro<Integer> maxHeap = new H_04_PriorityQueueIntro<>(
         (a, b) -> Integer.compare(b, a)
     );
 
@@ -966,7 +994,7 @@ Heap is useful when we need to repeatedly pick the smallest current element from
 ```java
 import java.util.ArrayList;
 import java.util.List;
-import java.util.PriorityQueue;
+import java.util.H_04_PriorityQueueIntro;
 
 class Node {
     int value;
@@ -981,7 +1009,7 @@ class Node {
 }
 
 public List<Integer> mergeKSortedArrays(int[][] arrays) {
-    PriorityQueue<Node> minHeap = new PriorityQueue<>(
+    H_04_PriorityQueueIntro<Node> minHeap = new H_04_PriorityQueueIntro<>(
         (a, b) -> Integer.compare(a.value, b.value)
     );
 
@@ -1032,13 +1060,13 @@ Rules:
 
 ```java
 import java.util.Collections;
-import java.util.PriorityQueue;
+import java.util.H_04_PriorityQueueIntro;
 
 class MedianFinder {
-    private final PriorityQueue<Integer> small = new PriorityQueue<>(
+    private final H_04_PriorityQueueIntro<Integer> small = new H_04_PriorityQueueIntro<>(
         Collections.reverseOrder()
     );
-    private final PriorityQueue<Integer> large = new PriorityQueue<>();
+    private final H_04_PriorityQueueIntro<Integer> large = new H_04_PriorityQueueIntro<>();
 
     public void addNum(int num) {
         if (small.isEmpty() || num <= small.peek()) {
@@ -1089,7 +1117,7 @@ A priority queue defines behavior:
 
 A heap is one efficient way to implement that behavior.
 
-Java's `PriorityQueue` is implemented using a binary heap.
+Java's `H_04_PriorityQueueIntro` is implemented using a binary heap.
 
 ## 27. Common Heap Problems
 
@@ -1119,10 +1147,10 @@ Greedy idea:
 Always connect the two smallest ropes first.
 
 ```java
-import java.util.PriorityQueue;
+import java.util.H_04_PriorityQueueIntro;
 
 public int minCostToConnectRopes(int[] ropes) {
-    PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+    H_04_PriorityQueueIntro<Integer> minHeap = new H_04_PriorityQueueIntro<>();
 
     for (int rope : ropes) {
         minHeap.offer(rope);
@@ -1168,7 +1196,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.H_04_PriorityQueueIntro;
 
 public List<Integer> topKFrequent(int[] nums, int k) {
     Map<Integer, Integer> frequency = new HashMap<>();
@@ -1177,7 +1205,7 @@ public List<Integer> topKFrequent(int[] nums, int k) {
         frequency.put(num, frequency.getOrDefault(num, 0) + 1);
     }
 
-    PriorityQueue<Integer> minHeap = new PriorityQueue<>(
+    H_04_PriorityQueueIntro<Integer> minHeap = new H_04_PriorityQueueIntro<>(
         (a, b) -> Integer.compare(frequency.get(a), frequency.get(b))
     );
 
@@ -1253,7 +1281,7 @@ poll()
 remove()
 ```
 
-Java `PriorityQueue.peek()` and `PriorityQueue.poll()` return `null` when the queue is empty.
+Java `H_04_PriorityQueueIntro.peek()` and `H_04_PriorityQueueIntro.poll()` return `null` when the queue is empty.
 
 ## 31. Min Heap vs Max Heap
 
@@ -1261,7 +1289,7 @@ Java `PriorityQueue.peek()` and `PriorityQueue.poll()` return `null` when the qu
 |---|---|---|
 | Root element | Smallest | Largest |
 | Parent rule | Parent <= children | Parent >= children |
-| Java default | Yes, `PriorityQueue` | No, needs comparator |
+| Java default | Yes, `H_04_PriorityQueueIntro` | No, needs comparator |
 | Used for kth largest | Yes, size `k` | Usually no |
 | Used for kth smallest | Usually no | Yes, size `k` |
 | Heap sort ascending | Not usually | Yes |
@@ -1323,11 +1351,11 @@ Because a heap is complete, it is usually stored in an array. For index `i`, the
 
 Insertion adds the new element at the end and moves it upward using sift up. Deleting the root replaces it with the last element and moves that value downward using heapify or sift down. Both operations take `O(log n)` time because the height of the heap is logarithmic.
 
-Heap is not fully sorted and is not a binary search tree. It only guarantees fast access to the minimum or maximum element. Java's `PriorityQueue` is a built-in heap-based priority queue and works as a min heap by default.
+Heap is not fully sorted and is not a binary search tree. It only guarantees fast access to the minimum or maximum element. Java's `H_04_PriorityQueueIntro` is a built-in heap-based priority queue and works as a min heap by default.
 
 ## 35. Best Practices
 
-- Use `PriorityQueue` in Java unless the problem asks for manual heap implementation.
+- Use `H_04_PriorityQueueIntro` in Java unless the problem asks for manual heap implementation.
 - Use a min heap when you repeatedly need the smallest element.
 - Use a max heap when you repeatedly need the largest element.
 - For kth largest, keep a min heap of size `k`.
@@ -1350,7 +1378,7 @@ Heap is not fully sorted and is not a binary search tree. It only guarantees fas
 | Sift up | Move inserted value upward |
 | Sift down | Move root replacement downward |
 | Priority queue | Abstract structure often implemented by heap |
-| Java heap class | `PriorityQueue` |
+| Java heap class | `H_04_PriorityQueueIntro` |
 | Insert complexity | `O(log n)` |
 | Delete root complexity | `O(log n)` |
 | Peek complexity | `O(1)` |
@@ -1365,4 +1393,4 @@ Use min heap when the smallest element has highest priority.
 
 Use max heap when the largest element has highest priority.
 
-For Java DSA problems, `PriorityQueue` is the most important built-in class for heap-based solutions.
+For Java DSA problems, `H_04_PriorityQueueIntro` is the most important built-in class for heap-based solutions.
