@@ -39,7 +39,7 @@ build/
 *.ipr
 out/
 cmake-build-*/
-
+*.pfd
 # Eclipse
 .apt_generated
 .classpath
