@@ -1,131 +1,194 @@
-Production-Grade Technical Documentation Design for Algorithmic PortfoliosConceptual Foundations of Developer Portfolio OptimizationIn 
-the contemporary software engineering ecosystem, open-source repositories serve as primary assets for validating an engineer's technical 
-proficiency, code design patterns, and overall architectural discipline. Among the diverse project categories on public hosting services, 
-algorithmic practice repositories are widely utilized to showcase continuous learning, mastery of computer science fundamentals, and 
-preparation for rigorous technical evaluations. Despite their strategic value, many of these repositories fail to establish professional
-authority due to unstructured directory layouts, a lack of execution parameters, and a total absence of discoverable metrics.The primary
-interface of a software repository is its documentation landing page, typically constructed via a markdown document. This document 
-establishes the immediate context, indexing, and runtime instructions required for external evaluators to interact with the project. 
-An optimized landing page functions as the gateway to the codebase, bridging raw algorithmic logic with structured engineering principles.
-To maximize professional influence, an algorithmic repository must present clear data structure categorizations, dynamic performance 
-tracking, clear environment setups, and standardized contribution protocols.Resolving Interactive Execution Bottlenecks in Integrated 
-Development EnvironmentsA frequent and severe bottleneck encountered by engineers during the execution of compiled languages, such as C 
-and C++, is the apparent hanging or halting of programs during local runtime tests. In many cases, developers mistake these runtime pauses 
-for long compilation times or software system errors. Detailed diagnostics indicate that these halts are primarily caused by routing 
-interactive standard input streams, such as the scanf() or std::cin functions, to integrated output consoles that do not support 
-interactive terminal buffers.When standard compilation paths are executed within restricted outputs inside integrated development 
-environments, the execution process stalls because the system cannot feed inputs back to the active thread. The compiler completes the 
-compilation phase almost instantaneously, but the runtime environment waits indefinitely for input data, resulting in a perceived infinite 
-delay. This specific challenge is resolved by shifting execution workflows away from passive output logging windows and directly into fully
-integrated interactive system terminals. Standardizing settings such as integrated terminal routing within configuration files ensures 
-that the interactive buffer functions correctly across all host environments.Dynamic Metrics and Visual Documentation InterfacesA 
-professional repository dashboard benefits greatly from incorporating real-time telemetry and visual progress trackers. Standard static 
-documentation fails to reflect ongoing code updates, tracking metrics, or external platform achievements. Integrating dynamic SVG badges 
-and API-driven status metrics directly into the header of the documentation ensures that the repository remains consistently up to date.The use of third-party API rendering engines allows developer profiles to pull live data from competitive programming and practice platforms, such as LeetCode, directly into the documentation interface. By structuring these badges using customizable themes (e.g., matching the system's dark or light modes), the visual appeal of the landing page is significantly enhanced without adding heavy image assets that slow down page rendering.Standardized Directory Topologies and Contribution WorkflowsTo maintain long-term scalability and support multi-developer collaboration, algorithmic codebases require strict directory layouts and contribution rules. When multiple contributors submit solutions across various programming languages (e.g., C++, Java, Python, or JavaScript), chaotic file structures can quickly make a repository difficult to navigate. A topological organization scheme, where each folder represents a specific data structure or algorithmic pattern, prevents file sprawl and simplifies code discovery.Furthermore, establishing explicit guidelines for code modifications, performance optimizations, and semantic commit formats ensures a high level of code quality. By defining clear pathways for local setup, testing, and pull request integration, a repository operates less like a simple code scratchpad and more like a production-ready open-source library.The Proposed Algorithmic Portfolio README SpecificationThe complete, production-ready markdown configuration for the manishrnl/DSA-Practice-Problem repository is detailed below. The code has been designed to use a professional, clear structure, providing dynamic badge integrations, an interactive progress index, and clear local compilation instructions.Data Structures and Algorithms Practice PortalA professionally structured repository hosting optimized solutions to fundamental Data Structures and Algorithms (DSA) challenges. This portfolio serves as a live ledger of problem-solving trajectories, runtime optimization strategies, and engineering discipline across multiple technical platforms.Repository TelemetryInfrastructure MetricCurrent Telemetry StatusIntegration SourceRepository SizeGitHub Content APILanguage DistributionCode AnalyzerCode Base LicenseLicense IdentifierLatest MaintenanceGit HistoryDeveloper BadgesLeetCode Profile SyncArchitectural TaxonomyThe repository utilizes a strict topological directory model, organizing every implementation by its core mathematical or logical structure to ensure rapid codebase navigation and structured scaling.DSA-Practice-Problem/├── 01_Arrays_and_Strings/        # Contiguous sequences, matrix transpositions, and sliding windows├── 02_Linked_Lists/              # Self-referencing node structures: singly, doubly, and circular├── 03_Stacks_and_Queues/         # Linear structures, monotonic layouts, and dual-stack designs├── 04_Trees_and_Graphs/          # Hierarchical structures, BSTs, DFS/BFS, and shortest-path models├── 05_Recursion_and_DP/          # Recursive backtracking, memoization, and tabular optimization├── .gitignore                    # Local environment exclusion parameter mapping└── README.md                     # Centralized repository landing interface
----
+<div align="center">
 
-## Core Algorithmic Progress Ledger
+# 🧠 DSA Practice Problem
 
-The table below catalogs implemented algorithmic solutions, mapping each solution to its corresponding directory, target evaluation platform, and performance metrics.
+### A structured, topic-wise journey through Data Structures & Algorithms in Java
 
-| ID | Problem Statement | Core Algorithmic Pattern | Target Platform | Time Complexity | Space Complexity | Verification Status |
-| :---: | :--- | :--- | :---: | :---: | :---: | :---: |
-| 001 | [Two Sum](./01_Arrays_and_Strings/Two_Sum.cpp) | Coordinate Hash Mapping | LeetCode | $O(N)$ | $O(N)$ | 🟢 Optimized |
-| 002 | [Best Time to Buy Stock](./01_Arrays_and_Strings/Stock_Max.cpp) | Single-Pass Greedy | LeetCode | $O(N)$ | $O(1)$ | 🟢 Optimized |
-| 003 | [Reverse Linked List](./02_Linked_Lists/Reverse_List.cpp) | In-place Pointer Reversal | LeetCode | $O(N)$ | $O(1)$ | 🟢 Optimized |
-| 004 | [Linked List Cycle](./02_Linked_Lists/List_Cycle.cpp) | Floyd Cycle Detection | LeetCode | $O(N)$ | $O(1)$ | 🟢 Verified |
-| 005 | [Search in Rotated Array](./01_Arrays_and_Strings/Rotated_Search.cpp) | Modified Binary Search | LeetCode | $O(\log N)$ | $O(1)$ | 🟡 Refactoring |
-| 006 | [Validate BST](./04_Trees_and_Graphs/Validate_BST.cpp) | Range-Constrained DFS | LeetCode | $O(N)$ | $O(H)$ | 🟢 Verified |
-| 007 | [Min Path Sum](./05_Recursion_and_DP/Min_Path.cpp) | Multi-Stage DP Matrix | LeetCode | $O(M \times N)$ | $O(N)$ | 🔴 Backlog |
+[![Language](https://img.shields.io/badge/Language-Java-orange?style=flat-square&logo=openjdk)](https://www.java.com/)
+[![IDE](https://img.shields.io/badge/IDE-IntelliJ%20IDEA-black?style=flat-square&logo=intellijidea)](https://www.jetbrains.com/idea/)
+[![Topics](https://img.shields.io/badge/Topics-15-blue?style=flat-square)](#-topics-covered)
+[![Problems](https://img.shields.io/badge/Problems%20Solved-80%2B-brightgreen?style=flat-square)](#-topics-covered)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-ff69b4?style=flat-square)](#-contributing)
+
+*A hands-on collection of core DSA implementations, notes, and visual explanations — built while preparing for backend engineering interviews.*
+
+</div>
 
 ---
 
-## Compilation and Workspace Setup
+## 📖 About
 
-To run and verify these solutions locally without encountering environment-specific execution hangs, follow the standardized instructions detailed below.
+**DSA-Practice-Problem** is a personal, ever-growing repository of Data Structures & Algorithms solutions written in **pure Java**. Instead of scattering random solutions across notebooks and gists, this repo organizes everything into **numbered topic modules** — each one a self-contained IntelliJ IDEA module — so the learning progression from fundamentals to advanced structures is easy to follow.
 
-### 1. Prerequisites
-Ensure a modern compiler is properly mapped inside the environment's system path:
-- **C++ Compiler:** GCC 9.0+ (`g++`) or Clang 11.0+ (`clang++`)
-- **Execution Engine:** GNU Make (Optional, for running automated script chains)
+Alongside the code, several topics include detailed **Markdown notes**, complete with tables, complexity breakdowns, and even **Mermaid diagrams** that visually trace how an algorithm executes step by step.
 
-### 2. Resolving IDE Interactive Console Halts
-When running solutions that require user input (such as `scanf()` or `cin` streams) inside VS Code, execution can sometimes hang indefinitely. This occurs because the default debugger output console is non-interactive. To resolve this issue, the execution process must be routed directly through a standard terminal interface:
-
-1. Open the workspace setting configuration file: `.vscode/settings.json`.
-2. Apply the following parameter to force execution in the integrated terminal:
-   ```json
-   {
-     "code-runner.runInTerminal": true
-   }
-This updates the environment path, allowing standard input streams to process interactive buffers correctly.3. Local Command-Line ExecutionTo manually compile and run a target solution using the terminal:Bash# Move into the corresponding directory
-cd 01_Arrays_and_Strings/
-
-# Compile using standard optimization flags
-g++ -O3 -std=c++17 Two_Sum.cpp -o Two_Sum
-
-# Run the compiled binary locally
-./Two_Sum
-Collaborative Contribution WorkflowContributions that optimize performance or introduce missing data structures are highly encouraged.Fork the Repository to establish a local working copy.Create a Conceptual Branch using descriptive, structured naming conventions:Bashgit checkout -b feature/optimum-avl-balancing
-Commit Your Code Changes using semantic prefix definitions:Bashgit commit -m "feat(avl): optimize worst-case rebalancing to O(log N)"
-Submit a Pull Request describing the algorithmic optimization, time-complexity analysis, and relevant tracking issues.License & CitationThis project is open-source and licensed under the terms of the MIT License. Feel free to modify, distribute, and utilize these implementations for educational or interview preparation workflows.
----
-
-## Comparative Architectural Analysis of Algorithmic Practice Repositories
-
-To understand the structural decisions behind successful repositories, it is useful to evaluate different documentation strategies. The table below compares common repository styles, assessing how well they handle key metrics such as discoverability, maintenance overhead, and developer experience.
-
-### Table 1: Comparative Evaluation of Developer Repository Documentation Models
-
-| Documentation Style | Maintenance Complexity | Information Density | Discoverability Rating | Recommended Use Case |
-| :--- | :--- | :--- | :--- | :--- |
-| **The Minimalist Stub** [cite: 17, 19] | Extremely Low (Rarely updated) | Low (Provides only basic names) | Poor (Requires reading source code directly) | Quick, personal local projects with no external visibility targets. |
-| **The Chronological Log** [cite: 8, 20] | Low (Entries added sequentially) | Medium (Focuses on daily progress) | Low (Difficult to search by data structure topic) | Targeted sprints (e.g., "100 Days of Code" challenges) [cite: 8, 20]. |
-| **The Monolithic Markdown** [cite: 7, 18] | High (Requires manual table updates) | High (Often includes complete code snippets) | Medium (Can become cluttered and slow to load) | Small libraries or single-topic repositories. |
-| **The Topological Index** | Medium (Structured update required) | High (Clear categorization matrices) | Very High (Instant access via direct relative links) | Professional portfolio repositories and technical review portals [cite: 1, 5]. |
+This repo is meant to be:
+- 📚 A **reference** — a quick place to revisit an algorithm before an interview
+- 🧪 A **playground** — small, runnable `main`-driven Java files for experimenting
+- 🗺️ A **roadmap** — a topic-by-topic checklist of DSA fundamentals
 
 ---
 
-## Architectural Mapping of Fundamental Data Structures
+## 📑 Table of Contents
 
-An effective progress tracker must be backed by a clear understanding of fundamental data structures [cite: 6, 21, 22]. The table below lists core data structures, along with their standard insertion, deletion, and search performance boundaries under worst-case execution paths.
-
-### Table 2: Core Data Structure Performance Boundaries and Optimization Profiles
-
-| Data Structure Model | Worst-Case Insertion | Worst-Case Deletion | Worst-Case Search | Primary Dynamic Use Case | Common Optimization Techniques |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Array (Dynamic)** [cite: 6, 22] | $O(N)$ | $O(N)$ | $O(N)$ | Contiguous data access and element indexing [cite: 5, 6]. | Capacity pre-allocation and amortized expansion [cite: 5, 6]. |
-| **Singly Linked List** [cite: 6, 22] | $O(1)$ | $O(1)$ | $O(N)$ | Dynamic queue systems and memory allocations [cite: 6, 11]. | Dummy head/tail markers and fast/slow pointer tracking [cite: 21, 23]. |
-| **Binary Search Tree (BST)** [cite: 6, 22] | $O(N)$ | $O(N)$ | $O(N)$ | Ordered key sets and range query systems [cite: 11, 23]. | Height balancing algorithms (e.g., AVL, Red-Black Trees) [cite: 6, 24]. |
-| **Hash Table** [cite: 6, 22] | $O(N)$ | $O(N)$ | $O(N)$ | Constant-time key-value lookups [cite: 21, 23]. | Collision resolution using chaining or open addressing [cite: 6, 25]. |
-| **Graph (Adjacency List)** [cite: 17, 22] | $O(1)$ | $O(V + E)$ | $O(V + E)$ | Complex network mapping and routing [cite: 11, 21]. | Memory-optimized structures and path caching [cite: 11, 21]. |
-
----
-
-## Strategic Impact of Documentation Architecture on Engineering Recruitment
-
-In a highly competitive talent market, especially for developers navigating the off-campus recruitment landscape, standard credentials alone may not guarantee attention from hiring teams [cite: 2]. Industry analysis indicates that technical interview pipelines are heavily focused on filtering candidates during the early stages of screening [cite: 2, 5]. A clean, professional, and well-structured repository serves as a practical demonstration of an engineer's coding standards and execution capabilities [cite: 1, 5].
-
-The table below contrasts standard repository layouts with optimized documentation frameworks, illustrating how these design decisions impact the overall evaluation of a candidate's technical skills.
-
-### Table 3: Documentation Design Decisions and Their Impact on Technical Appraisals
-
-| Key Assessment Factor | Standard Portfolio Style | Highly Optimized Documentation Framework | Evaluator Assessment Outcome |
-| :--- | :--- | :--- | :--- |
-| **Initial Impression & Brand** | Chaotic layout, missing documentation, or no landing page. | Real-time status badges, clean visual headers, and professional layouts [cite: 1, 13, 14]. | **Signals Professional Rigor:** Immediately distinguishes the repository from typical student projects. |
-| **Navigation Efficiency** | Unorganized, scattered code files requiring manual cataloging [cite: 9, 20]. | Clear directories, descriptive file naming, and relative markdown indexing [cite: 4, 6, 7]. | **Accelerates the Review Cycle:** Allows technical evaluators to find, inspect, and assess target code files in under 15 seconds. |
-| **Practical Technical Viability** | Code scripts that lack dependency details or execution instructions [cite: 8, 10]. | Clear step-by-step local setup guides, terminal path updates, and compilation parameters [cite: 7, 8, 11]. | **Demonstrates Practical Competence:** Confirms that the code is structured to compile and execute reliably in live environments [cite: 7, 10]. |
-| **Team Integration Readiness** | Direct master/main commits with no contribution rules or standards [cite: 4]. | Standardized branching patterns, descriptive commit formats, and clear code review rules. | **Signals Collaboration Experience:** Shows that the developer is familiar with modern, Git-based workflows and team integration processes [cite: 2, 4]. |
+- [About](#-about)
+- [Repository Structure](#-repository-structure)
+- [Topics Covered](#-topics-covered)
+- [Featured Deep Dives](#-featured-deep-dives)
+- [Getting Started](#-getting-started)
+- [Additional Study Material](#-additional-study-material)
+- [Roadmap](#-roadmap)
+- [Contributing](#-contributing)
+- [Author](#-author)
+- [License](#-license)
 
 ---
 
-## Architectural Recommendations for Repository Stewardship
+## 🗂 Repository Structure
 
-Standardizing the developer journey requires maintaining documentation quality across the entire lifecycle of a project. Utilizing the proposed professional layout for `manishrnl/DSA-Practice-Problem` establishes a highly structured and scalable framework [cite: 7, 18]. Developers are encouraged to adopt the following foundational practices to support the long-term health and visibility of their codebases:
+The project is organized as an **IntelliJ IDEA multi-module workspace**. Every topic lives in its own numbered folder (so the sidebar sorts in learning order) and contains its own `.iml` module file and `src/` directory:
 
-*   **Establish a Clear Topological Index:** Avoid placing all source files in a single directory [cite: 6]. Organizing implementations into descriptive, pattern-based folders makes the codebase easier to navigate and highlights the developer's mastery of specific software patterns [cite: 6, 11, 17].
-*   **Enforce Big-O Performance Benchmarks:** Document worst-case time and space complexity models at the head of each solution file [cite: 5, 9, 21]. This highlights an optimization-first design approach and demonstrates a deep understanding of resource constraints [cite: 1, 9].
-*   **Provide Clear local Build Configurations:** Include explicit instructions for local compilation and debugging [cite: 7, 8]. Specifically, documenting terminal run options resolves common IDE-specific runtime halts when handling interactive user inputs.
-*   **Adopt Structured Git Workflows:** Implement strict branching models and semantic commit rules [cite: 4, 18]. This structures the code modification history and proves the repository is maintained to professional, industry-standard collaborative practices [cite: 4, 9].
+```
+DSA-Practice-Problem/
+├── 00 Colorful Console Logs/     # Utility: styled console output for debugging
+├── 01 Bits Manipulation/         # XOR tricks, finding unique elements
+├── 02 Number Theory/             # Primes, GCD, Catalan numbers, factorial + README
+├── 03 Recursion/                 # Classic recursive problems
+├── 04 Back Tracking/             # N-Queens, Sudoku Solver + README
+├── 05 Array/                     # Kadane's, rainwater trapping, stock buy/sell
+├── 06 Sorting/                   # Bubble → Quick Sort + visual Mermaid README
+├── 07 Searching/                 # Binary/linear search, rotated array search
+├── 08 Hashing/                   # HashSet-based problems + detailed report
+├── 09 Heap Data Structures/      # Min/Max heap, heap sort, priority queue + README
+├── 10 Linked List/                # Reversal, palindrome check, cycle detection
+├── 11 Stack/                     # Monotonic stack, histogram, infix/postfix
+├── 12 Queue/                     # Circular queue, sliding window maximum
+├── 13 Binary Tree/               # Traversals, views, diameter, LCA, burn tree
+├── 14 Binary Search Tree/        # BST fundamentals
+├── DSA Notes.pdf / .docx         # Consolidated personal notes
+├── System Design.docx            # System design notes
+├── Explaning Gitignore.md        # A breakdown of .gitignore syntax
+└── README.md
+```
 
-Integrating these technical practices turns a simple collection of coding files into a powerful professional asset. It showcases not only the ability to write functional code, but also a commitment to clean architecture, clear documentation, and standard engineering workflows.
+> Each topic folder is a **standalone Java module** — open the repo in IntelliJ and every folder shows up as its own module, so you can run any single file without wiring up a build tool.
+
+---
+
+## 🧩 Topics Covered
+
+| # | Topic | Highlights |
+|---|-------|------------|
+| 00 | **Colorful Console Logs** | Styled/colored console output utility for cleaner debugging |
+| 01 | **Bit Manipulation** | Finding 1, 2, and 3 unique elements using XOR |
+| 02 | **Number Theory** | Prime numbers, GCD, factorial, Catalan numbers, trailing zeroes, inclusion-exclusion, pigeonhole principle |
+| 03 | **Recursion** | Josephus problem, permutations, power set, string palindrome, unique paths |
+| 04 | **Backtracking** | N-Queens, Sudoku Solver |
+| 05 | **Array** | Kadane's algorithm, rainwater trapping, best time to buy/sell stock |
+| 06 | **Sorting** | Bubble, Insertion, Selection, Merge, Quick Sort — with visual step-by-step diagrams |
+| 07 | **Searching** | Linear & binary search, book allocation problem, search in a rotated/infinite array |
+| 08 | **Hashing** | HashSet fundamentals, distinct elements per window, subarray with given sum, union/intersection of arrays |
+| 09 | **Heap Data Structures** | Heapify logic, Min/Max heap, heap sort, priority queues, Kth largest/smallest, connect N ropes, median of a stream |
+| 10 | **Linked List** | Reversal, palindrome check, cycle detection |
+| 11 | **Stack** | Array & linked-list backed stacks, next smaller/larger element, max area in histogram, largest rectangle in matrix, infix ↔ postfix conversion |
+| 12 | **Queue** | Array & circular queue, queue using two stacks, flattening a multilevel linked list, sliding window maximum |
+| 13 | **Binary Tree** | Traversals (in/pre/post/level order), left-right & top-bottom views, diameter, LCA, tree-to-doubly-linked-list, burning tree problem |
+| 14 | **Binary Search Tree** | Core BST introduction |
+
+*(80+ solved problems across 15 topics — and counting.)*
+
+---
+
+## 🔎 Featured Deep Dives
+
+A few topics go beyond raw code and include dedicated notes:
+
+- **[`06 Sorting/README.md`](./06%20Sorting/README.md)** — A visual guide to comparison-based sorts, using Mermaid diagrams to trace each swap step by step.
+- **[`09 Heap Data Structures/README.md`](./09%20Heap%20Data%20Structures/README.md)** — A from-scratch explanation of heaps: what they are, why they're useful, and how Min/Max heap ordering works.
+- **[`08 Hashing/Hashing-report.md`](./08%20Hashing/Hashing-report.md)** — A written report covering hashing-based problem patterns.
+- **[`04 Back Tracking/README.md`](./04%20Back%20Tracking/README.md)** — Notes on the backtracking paradigm through N-Queens and Sudoku.
+- **[`02 Number Theory/README.md`](./02%20Number%20Theory/README.md)** — Number theory concepts used across competitive programming.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- **JDK 8+** installed and configured
+- **IntelliJ IDEA** (recommended — the repo is pre-structured as an IntelliJ workspace) or any Java-capable IDE/editor
+
+### Clone the repository
+
+```bash
+git clone https://github.com/manishrnl/DSA-Practice-Problem.git
+cd DSA-Practice-Problem
+```
+
+### Run a solution
+Every problem lives in its own `.java` file with a `main` method, so you can run files independently:
+
+**Using IntelliJ IDEA**
+1. Open the cloned folder as a project — IntelliJ will automatically detect the existing modules.
+2. Navigate to any topic's `src/` folder.
+3. Right-click a file → **Run**.
+
+**Using the command line**
+```bash
+cd "13 Binary Tree/src"
+javac B05_Level_Order_Traversal.java
+java B05_Level_Order_Traversal
+```
+
+---
+
+## 📚 Additional Study Material
+
+Beyond the code, this repo also carries broader prep material:
+
+| File | Description |
+|------|-------------|
+| `DSA Notes.pdf` / `DSA Notes.docx` | Consolidated personal notes covering DSA concepts in depth |
+| `System Design.docx` | Notes on system design fundamentals |
+| `Explaning Gitignore.md` | A practical breakdown of `.gitignore` syntax (`*`, `**`, `!`, `[]`, `?`) for Java projects |
+
+---
+
+## 🗺 Roadmap
+
+Planned/likely next additions as the DSA journey continues:
+
+- [ ] Graph algorithms (BFS, DFS, Dijkstra, Union-Find)
+- [ ] Dynamic Programming (1D, 2D, knapsack variants)
+- [ ] Trie / advanced string algorithms
+- [ ] More Binary Search Tree operations (insertion, deletion, balancing)
+- [ ] Sliding window & two-pointer problem sets
+
+---
+
+## 🤝 Contributing
+
+This is primarily a personal learning log, but suggestions, corrections, and alternative approaches are welcome:
+
+1. **Fork** the repository
+2. Create a feature branch: `git checkout -b add-topic-name`
+3. Commit your changes: `git commit -m "Add: <what you added>"`
+4. Push to your fork: `git push origin add-topic-name`
+5. Open a **Pull Request** describing the change
+
+If you spot a bug or a more optimal approach to an existing solution, feel free to open an issue too.
+
+---
+
+## 👤 Author
+
+**Manish** ([@manishrnl](https://github.com/manishrnl))
+
+If this repo helped you prepare for interviews or learn a concept, consider giving it a ⭐!
+
+---
+
+## 📄 License
+
+No license file is currently included in this repository, which means default copyright applies and reuse isn't explicitly permitted. If you'd like this project to be freely reusable, consider adding an [MIT License](https://choosealicense.com/licenses/mit/) or similar.
+
+</div>
