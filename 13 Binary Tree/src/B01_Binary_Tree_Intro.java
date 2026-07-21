@@ -19,7 +19,6 @@ import java.util.Scanner;
  * </ul>
  */
 public class B01_Binary_Tree_Intro {
-
     static Scanner sc = null;
 
     public static class Node {
@@ -35,33 +34,67 @@ public class B01_Binary_Tree_Intro {
     }
 
     /**
-     * Recursively constructs a Binary Tree based on interactive console inputs from the user.
-     * Use a value of {@code -1} to denote a null or empty leaf terminal space.
-     *
-     * <p><b>Execution Paradigm:</b></p>
-     * The node building block functions dynamically using a Pre-order approach (Root, Left, Right).
-     *
-     * @return the newly initialized root node instance, or {@code null} if termination sequence was met.
+     * <h3>Tracing Below Code (Step-by-Step)</h3>
+     * <p>
+     * To understand how this executes, we have to look at the <strong>Call Stack</strong>.  When a method calls itself, the computer
+     * "pauses" the current method, saves its place, and starts a fresh version of the method.
+     * <p>
+     * Let's imagine the user types this exact sequence of numbers: {@code 5, 2, -1, -1, 8, -1, -1}. Here is exactly how the computer
+     * executes the function with those inputs to build a tree with 5 at the top, 2 on the left, and 8 on the right:
+     * </p>
+     * <ol>
+     *     <li>
+     *         <strong>Call 1 creates the Root (Reads 5):</strong> The method starts. It reads 5. Since {@code 5 != -1}, it creates
+     *         {@code Node root = new Node(5)}. Then, it hits the line {@code root.left = createTree()}.<br><em>Status:</em>
+     *         Call 1 pauses and waits for the left side to finish building.
+     *     </li>
+     *     <li>
+     *         <strong>Call 2 goes Left (Reads 2):</strong> A fresh {@code createTree()} starts.
+     *         It reads 2. It creates {@code Node root = new Node(2)}. It hits
+     *         {@code root.left = createTree()}.
+     *         <br><em>Status:</em> Call 2 now pauses and waits. Call 1 is still waiting.
+     *     </li>
+     *     <li>
+     *         <strong>Call 3 hits the Base Case (Reads -1):</strong> <em>(Node 2's left child)</em>
+     *         A fresh {@code createTree()} starts. It reads -1. Because {@code data == -1}, it
+     *         triggers the base case: {@code return null;}.
+     *         <br><em>Status:</em> Call 3 finishes and disappears. It hands {@code null} back to Call 2.
+     *     </li>
+     *     <li>
+     *         <strong>Call 2 resumes and goes Right (Reads -1):</strong> <em>(Node 2's right child)</em>
+     *         Call 2 wakes up. It sets {@code Node(2).left = null}. Now it moves to the next line:
+     *         {@code root.right = createTree()}. A fresh call (Call 4) reads the next input (-1),
+     *         which returns {@code null}.
+     *         <br><em>Status:</em> Call 2 sets {@code Node(2).right = null}.
+     *     </li>
+     *     <li>
+     *         <strong>Call 2 finishes (Returns Node 2 to the Root):</strong> Call 2 has finished both
+     *         its left and right lines of code. It hits {@code return root;}. It hands the fully
+     *         completed {@code Node(2)} back up to Call 1.
+     *         <br><em>Status:</em> Call 1 wakes up. It finally executes {@code Node(5).left = Node(2)}.
+     *     </li>
+     *     <li>
+     *         <strong>Call 1 goes Right (Reads 8):</strong> Call 1 now moves to its next line:
+     *         {@code root.right = createTree()}. The process repeats: A new call reads 8, makes
+     *         {@code Node(8)}, asks for its left (-1, returns {@code null}), asks for its right
+     *         (-1, returns {@code null}), and returns {@code Node(8)}.
+     *     </li>
+     *     <li>
+     *         <strong>Call 1 finishes:</strong> Call 1 sets {@code Node(5).right = Node(8)}.
+     *         It hits {@code return root;}. The entire tree is built and returned. Execution is over.
+     *     </li>
+     * </ol>
      */
     public static Node createTree() {
-
         int data = sc.nextInt();
+        if (data == -1) return null;    // Base case: If user inputs -1, no node should be constructed here
+        Node root = new Node(data); // Allocate memory space for the active parent node structure
 
-        // Base case: If user inputs -1, no node should be constructed here
-        if (data == -1) {
-            return null;
-        }
+        System.out.print("Enter left child value for node [" + data + "] : ");
+        root.left = createTree();    // Recursively build out the left branch hierarchy under the parent node
 
-        // Allocate memory space for the active parent node structure
-        Node root = new Node(data);
-
-        // Recursively build out the left branch hierarchy under the parent node
-        System.out.println("Enter left child value for node [" + data + "]");
-        root.left = createTree();
-
-        // Recursively build out the right branch hierarchy under the parent node
-        System.out.println("Enter right child value for node [" + data + "]");
-        root.right = createTree();
+        System.out.print("Enter right child value for node [" + data + "] : ");
+        root.right = createTree();   // Recursively build out the right branch hierarchy under the parent node
 
         return root;
     }
@@ -69,34 +102,17 @@ public class B01_Binary_Tree_Intro {
     /**
      * Traverses and prints out all active elements within the tree structure recursively.
      * Prints using Pre-Order Traversal sequence: (Root {@code ->} Left {@code ->} Right).
-     *
-     * @param root the starting base node of the active tree configuration to evaluate.
      */
     public static void printTree(Node root) {
-        if (root == null) {
-            return;
-        }
-
-        // Process current root data layout
-        System.out.print(root.data + " ");
-
-        // Cascade down into left sub-trees recursively
-        printTree(root.left);
-
-        // Cascade down into right sub-trees recursively
-        printTree(root.right);
+        if (root == null) return;
+        System.out.print(root.data + " ");  // Process current root data layout
+        printTree(root.left);        // Cascade down into left sub-trees recursively
+        printTree(root.right);        // Cascade down into right sub-trees recursively
     }
 
-    /**
-     * System validation loop to create and inspect the tree's runtime data mapping.
-     *
-     * @param args command line argument parameters (unused).
-     */
     public static void main(String[] args) {
-        System.out.print("Enter data (-1 for no node): ");
+        System.out.print("Enter Root (-1 for no node): ");
         sc = new Scanner(System.in);
-
-        System.out.println("--- Initialize Binary Tree Construction ---");
         Node root = createTree();
 
         System.out.println("\n--- Resulting Pre-Order Tree Traversal Output ---");
