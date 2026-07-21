@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="26" jdkType="JavaSDK" />
+    <orderEntry type="module" module-name="00 Colorful Console Logs" exported="" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
