@@ -26,6 +26,10 @@ public class SubArray_With_Given_Sum {
                 return list;
             }
         }
+
+
+
+
         System.out.println("Lists data are : " + list);
         return list;
     }

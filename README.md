@@ -189,6 +189,6 @@ If this repo helped you prepare for interviews or learn a concept, consider givi
 
 ## 📄 License
 
-No license file is currently included in this repository, which means default copyright applies and reuse isn't explicitly permitted. If you'd like this project to be freely reusable, consider adding an [MIT License](https://choosealicense.com/licenses/mit/) or similar.
+This Repo is currently using MIT License, which means default copyright will not applies and reuse is explicitly permitted.  [![License](https://img.shields.io/github/license/manishrnl/DSA-Practice-Problem)](https://github.com/manishrnl/DSA-Practice-Problem/blob/main/LICENSE)
 
 </div>

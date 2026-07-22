@@ -6,7 +6,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
-    <orderEntry type="module" module-name="01 Bits Manipulation" />
     <orderEntry type="module" module-name="00 Colorful Console Logs" exported="" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
