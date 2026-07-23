@@ -9,6 +9,7 @@
 *.zip
 *.tar.gz
 *.rar
+*.docx
 
 # ==========================================
 # Build Tools (Maven & Gradle)
