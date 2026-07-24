@@ -117,7 +117,7 @@ public class G05_Detect_Cycle_In_Directed_Graphs {
      * @param node1         the source vertex
      * @param node2         the destination vertex
      */
-    public static void populateGraph(ArrayList<ArrayList<Integer>> adjacencyList, int node1, int node2) {
+    public static void addEdge(ArrayList<ArrayList<Integer>> adjacencyList, int node1, int node2) {
         adjacencyList.get(node1).add(node2);
     }
 
@@ -127,13 +127,13 @@ public class G05_Detect_Cycle_In_Directed_Graphs {
         for (int i = 0; i < totalVertices; i++)
             adjacencyList.add(new ArrayList<>());
 
-        populateGraph(adjacencyList, 0, 1);
-        populateGraph(adjacencyList, 0, 2);
-        populateGraph(adjacencyList, 1, 2);
-        populateGraph(adjacencyList, 1, 3);
-        populateGraph(adjacencyList, 4, 5);
-        populateGraph(adjacencyList, 5, 6);
-        populateGraph(adjacencyList, 6, 4);
+        addEdge(adjacencyList, 0, 1);
+        addEdge(adjacencyList, 0, 2);
+        addEdge(adjacencyList, 1, 2);
+        addEdge(adjacencyList, 1, 3);
+        addEdge(adjacencyList, 4, 5);
+        addEdge(adjacencyList, 5, 6);
+        addEdge(adjacencyList, 6, 4);
 
         System.out.println(isCycle(totalVertices, adjacencyList)
                 ? "Yes, we detect a cycle in your graph at node : " + answer
@@ -147,10 +147,10 @@ public class G05_Detect_Cycle_In_Directed_Graphs {
         for (int i = 0; i < secondTotalVertices; i++)
             secondGraph.add(new ArrayList<>());
 
-        populateGraph(secondGraph, 0, 1);
-        populateGraph(secondGraph, 1, 2);
-        populateGraph(secondGraph, 2, 3);
-        populateGraph(secondGraph, 3, 1);
+        addEdge(secondGraph, 0, 1);
+        addEdge(secondGraph, 1, 2);
+        addEdge(secondGraph, 2, 3);
+        addEdge(secondGraph, 3, 1);
 
         System.out.println(isCycle(secondTotalVertices, secondGraph)
                 ? "Yes, we detect a cycle in your graph at node : " + answer
