@@ -1,3 +1,4 @@
+import javax.crypto.spec.PSource;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
@@ -123,7 +124,7 @@ public class G09_Dijkstra_Algorithm {
      */
     public static void main(String[] args) {
         ArrayList<ArrayList<ArrayList<Integer>>> adjacencyList = new ArrayList<>();
-        int numberOfVertex = 4;
+        int numberOfVertex = 4,sourceNode=0;
         for (int i = 0; i < numberOfVertex; i++) {
             adjacencyList.add(new ArrayList<>());
         }
@@ -134,7 +135,7 @@ public class G09_Dijkstra_Algorithm {
         addEdge(adjacencyList, 1, 3, 1);
         addEdge(adjacencyList, 2, 3, 5);
 
-        int[] distances = dijkstra(numberOfVertex, 0, adjacencyList);
-        System.out.print("\nShortest distances from vertex 0 -> " + Arrays.toString(distances));
+        int[] distances = dijkstra(numberOfVertex, sourceNode, adjacencyList);
+        System.out.print("\nShortest distances from vertex "+sourceNode+ " is -> " + Arrays.toString(distances));
     }
 }
