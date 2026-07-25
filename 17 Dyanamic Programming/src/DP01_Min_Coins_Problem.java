@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class DP_01_Min_Coins_Problem {
+public class DP01_Min_Coins_Problem {
 
     public static void main(String[] args) {
         int targetSum = 18;
