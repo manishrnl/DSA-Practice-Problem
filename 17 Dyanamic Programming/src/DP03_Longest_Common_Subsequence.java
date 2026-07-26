@@ -92,28 +92,6 @@ import java.util.Arrays;
 public class DP03_Longest_Common_Subsequence {
 
     /**
-     * Entry point to execute Top-Down, Bottom-Up, and Space-Optimized variants of LCS.
-     *
-     * @param args Command-line arguments (not used).
-     */
-    public static void main(String[] args) {
-        String sequence1 = "ABUSER";
-        String sequence2 = "ABDSCR";
-        int length1 = sequence1.length();
-        int length2 = sequence2.length();
-
-        // Memoization table initialized with -1
-        int[][] dp = new int[length1 + 1][length2 + 1];
-        for (int[] row : dp) {
-            Arrays.fill(row, -1);
-        }
-
-        System.out.println("LCS Length (Normal Approach T.C = O (2^n)  )     : " + lcs(length1, length2, sequence1, sequence2, dp));
-        System.out.println("LCS Length  (Optimised Approach T.C = O (n*m) )  : " + lcs_Optimised(length1, length2, sequence1, sequence2));
-        System.out.println("LCS Length (Space-Optimized T.C = O (n*m)  )     : " + lcs_SpaceOptimised(length1, length2, sequence1, sequence2));
-    }
-
-    /**
      * Computes LCS using Top-Down Memoization (Recursion + Caching).
      *
      * <p>Time Complexity: {@code O(length1 * length2)}<br>
@@ -200,5 +178,22 @@ public class DP03_Longest_Common_Subsequence {
             previousRow = currentRow.clone();
         }
         return previousRow[length2];
+    }
+
+    public static void main(String[] args) {
+        String sequence1 = "ABUSER";
+        String sequence2 = "ABDSCR";
+        int length1 = sequence1.length();
+        int length2 = sequence2.length();
+
+        // Memoization table initialized with -1
+        int[][] dp = new int[length1 + 1][length2 + 1];
+        for (int[] row : dp) {
+            Arrays.fill(row, -1);
+        }
+
+        System.out.println("LCS Length (Normal Approach T.C = O (2^n)  )     : " + lcs(length1, length2, sequence1, sequence2, dp));
+        System.out.println("LCS Length  (Optimised Approach T.C = O (n*m) )  : " + lcs_Optimised(length1, length2, sequence1, sequence2));
+        System.out.println("LCS Length (Space-Optimized T.C = O (n*m)  )     : " + lcs_SpaceOptimised(length1, length2, sequence1, sequence2));
     }
 }
