@@ -9,7 +9,7 @@
 *.zip
 *.tar.gz
 *.rar
-*.docx
+
 
 # ==========================================
 # Build Tools (Maven & Gradle)
@@ -40,7 +40,6 @@ build/
 *.ipr
 out/
 cmake-build-*/
-*.pfd
 # Eclipse
 .apt_generated
 .classpath
